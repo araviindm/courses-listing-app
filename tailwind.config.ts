@@ -6,7 +6,15 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  theme: {},
+  theme: {
+    screens: {
+      sm: "640px",
+      md: "768px",
+      ml: "913px",
+      lg: "1024px",
+      xl: "1280px",
+    },
+  },
   plugins: [],
 };
 export default config;

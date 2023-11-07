@@ -1,4 +1,7 @@
-export type Course = {
+import { ObjectId } from "mongoose";
+
+export interface Course {
+  _id: ObjectId | undefined;
   id: number;
   title: string;
   instructor: string;
@@ -14,4 +17,16 @@ export type Course = {
     topic: string;
     content: string;
   }[];
-};
+}
+
+export interface Student {
+  id: string;
+  name: string;
+  courses: {
+    courseId: number;
+    title: string;
+    instructor: string;
+    dueDate: string;
+    percentCompleted: number;
+  }[];
+}

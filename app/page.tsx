@@ -15,14 +15,12 @@ const Home = () => {
   const [coursesError, setCoursesError] = useState(false);
 
   const getCourses = useCallback(async () => {
-    let resp = await store.search(search);
-    if (resp.status === 200) {
-      setCourses(resp.data);
-    } else {
-      setCourses([]);
-      console.log("Error fetching courses", resp);
+    if (!(await store.search(search))) {
       setCoursesError(true);
+    } else {
+      setCourses(store.courses);
     }
+
     return () => {};
   }, [search]);
 
@@ -31,6 +29,7 @@ const Home = () => {
   };
 
   useEffect(() => {
+    localStorage.setItem("studentId", "1");
     getCourses();
   }, [getCourses]);
 
@@ -71,7 +70,7 @@ const Home = () => {
                   key={course.id}
                   className="relative m-[1px] max-w-sm bg-black border-none rounded-lg shadow-sm hover:shadow-md hover:bg-opacity-20 hover:cursor-pointer bg-opacity-40 transition-transform transform hover:scale-105"
                   onClick={() => {
-                    router.push("/course");
+                    router.push("/course/" + course._id);
                   }}
                 >
                   <Image

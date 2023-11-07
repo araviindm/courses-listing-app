@@ -141,6 +141,33 @@ class Store {
     },
   ];
 
+  @observable course: Course = {
+    id: 1,
+    title: "Introduction to Programming",
+    instructor: "John Smith",
+    duration: "8 weeks",
+    likes: 120,
+    description:
+      "This course introduces you to the fundamentals of programming with a focus on problem-solving and basic coding concepts.",
+    enrollmentStatus: "Open",
+    schedule: "Mondays and Wednesdays, 6:00 PM - 8:00 PM",
+    location: "Online",
+    prerequisites: ["Basic JavaScript knowledge", "Familiarity with React"],
+    syllabus: [
+      {
+        week: 1,
+        topic: "Introduction to React Native",
+        content:
+          "Overview of React Native, setting up your development environment.",
+      },
+      {
+        week: 2,
+        topic: "Building Your First App",
+        content: "Creating a simple mobile app using React Native components.",
+      },
+    ],
+  };
+
   @action setSampleAction(value: string) {
     this.sample = value;
   }
@@ -149,6 +176,14 @@ class Store {
     let resp = {
       status: 200,
       data: this.courses,
+      errorMsg: "",
+    };
+    return resp;
+  }
+  @action fetchCourse(id: string) {
+    let resp = {
+      status: 200,
+      data: this.course,
       errorMsg: "",
     };
     return resp;

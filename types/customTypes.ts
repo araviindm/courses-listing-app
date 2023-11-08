@@ -12,11 +12,13 @@ export interface Course {
   schedule: string;
   location: string;
   prerequisites: string[];
-  syllabus: {
-    week: number;
-    topic: string;
-    content: string;
-  }[];
+  syllabus: Syllabus[];
+}
+
+export interface Syllabus {
+  content: string;
+  week: number;
+  topic: string;
 }
 
 export interface Student {

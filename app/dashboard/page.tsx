@@ -1,10 +1,10 @@
 "use client";
-import Loader from "@/components/Loader";
-import store from "@/store";
-import { Student } from "@/types/customTypes";
 import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
+import Loader from "@/components/Loader";
 import ProgressBar from "@/components/ProgressBar";
+import store from "@/store";
+import { Student } from "@/types/customTypes";
 import { IoIosArrowForward } from "react-icons/io";
 
 const DashBoard = () => {
@@ -25,7 +25,18 @@ const DashBoard = () => {
   }, []);
 
   useEffect(() => {
-    getStudent();
+    let studentId: unknown = localStorage.getItem("studentId");
+    if (studentId && (studentId as number) > 0 && (studentId as number) <= 5) {
+      store.setStudentId(studentId as string);
+    } else {
+      store.setStudentId("1");
+    }
+
+    const delayedFunction = () => {
+      getStudent();
+    };
+    const timer = setTimeout(delayedFunction, 100);
+    return () => clearTimeout(timer);
   }, [getStudent]);
 
   if (student.id === "") {

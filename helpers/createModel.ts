@@ -1,15 +1,13 @@
-// lib/createModel.ts
 import { Model, model, Schema } from "mongoose";
 
-// Simple Generic Function for reusability
-// Feel free to modify however you like
+// Generic function
 export default function createModel<T, TModel = Model<T>>(
   modelName: string,
   schema: Schema<T>
 ): TModel {
   let createdModel: TModel;
   if (process.env.NODE_ENV === "development") {
-    // In development mode, use a global variable so that the value
+    // In development mode
     // is preserved across module reloads caused by HMR (Hot Module Replacement).
     // @ts-ignore
     if (!global[modelName]) {
@@ -20,7 +18,7 @@ export default function createModel<T, TModel = Model<T>>(
     // @ts-ignore
     createdModel = global[modelName];
   } else {
-    // In production mode, it's best to not use a global variable.
+    // In production mode
     createdModel = model<T, TModel>(modelName, schema);
   }
   return createdModel;

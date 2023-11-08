@@ -1,11 +1,6 @@
+import { Syllabus } from "@/types/customTypes";
 import { useState } from "react";
 import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
-
-interface Syllabus {
-  content: string;
-  week: number;
-  topic: string;
-}
 
 const ExpandableDiv = ({ syllabus }: { syllabus: Syllabus }) => {
   const [isExpanded, setIsExpanded] = useState(false);

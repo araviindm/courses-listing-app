@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import connect from "@/db";
 import Course from "@/models/Course";
 
+// Fetch all courses
 export async function GET(req: NextRequest) {
   try {
     let isConnected = await connect();

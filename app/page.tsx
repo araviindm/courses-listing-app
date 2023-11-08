@@ -1,12 +1,12 @@
 "use client";
-import { BsSearch } from "react-icons/bs";
-import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+import Loader from "@/components/Loader";
 import store from "@/store";
 import { Course } from "@/types/customTypes";
-import { useRouter } from "next/navigation";
 import { AiOutlineLike } from "react-icons/ai";
-import Loader from "@/components/Loader";
+import { BsSearch } from "react-icons/bs";
 
 const Home = () => {
   const router = useRouter();
@@ -29,7 +29,6 @@ const Home = () => {
   };
 
   useEffect(() => {
-    localStorage.setItem("studentId", "1");
     getCourses();
   }, [getCourses]);
 

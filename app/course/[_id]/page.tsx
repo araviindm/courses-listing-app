@@ -1,10 +1,10 @@
 "use client";
-import store from "@/store";
-import { Course } from "@/types/customTypes";
 import { useCallback, useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import Loader from "@/components/Loader";
 import ExpandableDiv from "@/components/ExpandableDiv";
+import store from "@/store";
+import { Course } from "@/types/customTypes";
 
 const CourseDetails = () => {
   const params = useParams();

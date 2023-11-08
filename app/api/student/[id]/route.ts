@@ -1,6 +1,7 @@
-import { Student } from "@/types/customTypes";
 import { NextRequest, NextResponse } from "next/server";
+import { Student } from "@/types/customTypes";
 
+//Students array
 const students = [
   {
     id: "1",
@@ -90,6 +91,7 @@ const students = [
   },
 ];
 
+// Fetch a single student by id
 export async function GET(
   req: NextRequest,
   { params }: { params: { id: string } }

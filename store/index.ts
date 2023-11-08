@@ -23,7 +23,7 @@ class Store {
     name: "",
     courses: [],
   };
-  @observable studentId = "1";
+  @observable studentId = "";
 
   @action setCourses(courses: Course[]) {
     this.courses = courses;
@@ -35,6 +35,9 @@ class Store {
 
   @action setStudent(student: Student) {
     this.student = student;
+  }
+  @action setStudentId(studentId: string) {
+    this.studentId = studentId;
   }
 
   @action async search(query: string) {

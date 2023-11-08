@@ -1,7 +1,8 @@
-import Course from "@/models/Course";
 import { NextRequest, NextResponse } from "next/server";
 import connect from "@/db";
+import Course from "@/models/Course";
 
+// Fetch a single course by _id
 export async function GET(
   req: NextRequest,
   { params }: { params: { id: string } }

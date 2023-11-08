@@ -11,7 +11,7 @@ import { BsSearch } from "react-icons/bs";
 const Home = () => {
   const router = useRouter();
   const [search, setSearch] = useState("");
-  const [courses, setCourses] = useState<Course[]>();
+  const [courses, setCourses] = useState<Course[]>([]);
   const [coursesError, setCoursesError] = useState(false);
 
   const getCourses = useCallback(async () => {

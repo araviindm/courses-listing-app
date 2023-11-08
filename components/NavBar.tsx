@@ -9,11 +9,11 @@ const NavBar = () => {
       <nav>
         <div className="block">
           <ul className="flex justify-center h-auto">
-            <li className="hover:text-blue-500 mr-2">
+            <li className="hover:text-sky-500 mr-2">
               <Link href="/">Home</Link>
             </li>
             <li>
-              <Link href="/dashboard" className="hover:text-blue-500">
+              <Link href="/dashboard" className="hover:text-sky-500">
                 Dashboard
               </Link>
             </li>

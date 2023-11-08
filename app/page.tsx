@@ -89,10 +89,10 @@ const Home = () => {
                         </span>
                         <span className="align-middle">{course.likes}</span>
                       </p>
-                      <h5 className="mb-2 text-2xl font-bold tracking-tight text-blue-500">
+                      <h5 className="mb-2 text-2xl font-bold tracking-tight text-blue-500 truncate">
                         {course.title}
                       </h5>
-                      <h5 className="mb-2 text-xl font-semibold tracking-tight text-gray-400">
+                      <h5 className="mb-2 text-xl font-semibold tracking-tight text-gray-400 truncate underline">
                         {course.instructor}
                       </h5>
                     </div>

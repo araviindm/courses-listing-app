@@ -4,8 +4,14 @@ import Course from "@/models/Course";
 
 export async function GET(req: NextRequest) {
   try {
+    let isConnected = await connect();
+    if (!isConnected) {
+      return NextResponse.json({
+        resp: "Error connecting to db",
+        status: 500,
+      });
+    }
     const query = req.nextUrl.searchParams.get("query") as string;
-    await connect();
     let searchCriteria = {};
     if (query) {
       searchCriteria = {
